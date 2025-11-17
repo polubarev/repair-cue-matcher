@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Iterable, List
 
 from .normalization import normalize
-from .types import CuePattern
+from .models import CuePattern
 
 
 @dataclass
@@ -134,4 +134,3 @@ def expand_to_k(patterns: List[CuePattern], k: int) -> List[CuePattern]:
         )
 
     return final_patterns
-

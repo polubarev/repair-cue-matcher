@@ -11,7 +11,7 @@ import re
 from typing import List
 
 from .normalization import normalize
-from .types import CuePattern, Match
+from .models import CuePattern, Match
 
 
 class RegexBaselineMatcher:
@@ -44,4 +44,3 @@ class RegexBaselineMatcher:
                 )
 
         return results
-

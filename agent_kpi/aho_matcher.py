@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from typing import Dict, List
 
 from .normalization import normalize
-from .types import CuePattern, Match
+from .models import CuePattern, Match
 
 
 @dataclass
@@ -104,4 +104,3 @@ class AhoCorasickMatcher:
                     results.append(Match(pattern=pattern, start=start, end=end))
 
         return results
-

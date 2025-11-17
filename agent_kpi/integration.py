@@ -11,7 +11,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Iterable, List, Tuple
 
-from .types import Conversation, Turn
+from .models import Conversation, Turn
 
 
 def parse_transcripts(path: str | Path) -> List[Conversation]:
@@ -88,4 +88,3 @@ def agent_turns_after_patient(
             if prev_turn.speaker == "PATIENT" and turn.speaker == "AGENT":
                 result.append((conv, idx))
     return result
-
