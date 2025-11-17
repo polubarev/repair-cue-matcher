@@ -8,7 +8,6 @@ using the provided transcripts and cue list.
 from __future__ import annotations
 
 import argparse
-import statistics
 import time
 from pathlib import Path
 from typing import Iterable, List, Sequence
@@ -48,6 +47,7 @@ def run_benchmark(
     cues_path: str | Path,
     k_values: Iterable[int],
     iterations: int = 1000,
+    out_md: str | Path | None = None,
 ) -> None:
     transcripts_path = Path(transcripts_path)
     cues_path = Path(cues_path)
@@ -69,6 +69,9 @@ def run_benchmark(
     print(f"{'k':>5} | {'method':>10} | {'ms/turn':>10} | {'speedup_vs_regex':>16}")
     print("-" * 50)
 
+    # Collect rows to optionally persist as Markdown.
+    rows: List[dict] = []
+
     for k in k_values:
         patterns_k = expand_to_k(base_patterns, k)
 
@@ -83,6 +86,50 @@ def run_benchmark(
         print(f"{k:5d} | {'aho':>10} | {ms_aho:10.4f} | {'-':>16}")
         print(f"{k:5d} | {'regex':>10} | {ms_regex:10.4f} | {speedup:16.2f}")
         print("-" * 50)
+
+        rows.append(
+            {
+                "k": k,
+                "method": "aho",
+                "ms_per_turn": ms_aho,
+                "speedup_vs_regex": None,
+            }
+        )
+        rows.append(
+            {
+                "k": k,
+                "method": "regex",
+                "ms_per_turn": ms_regex,
+                "speedup_vs_regex": speedup,
+            }
+        )
+
+    if out_md is not None and rows:
+        out_path = Path(out_md)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+        with out_path.open("w", encoding="utf-8") as f:
+            f.write("# Benchmark Results\n\n")
+            f.write(f"- Transcripts: `{transcripts_path}`\n")
+            f.write(f"- Cues: `{cues_path}`\n")
+            f.write(f"- Iterations per run: `{iterations}`\n")
+            f.write(f"- k values: `{', '.join(str(k) for k in k_values)}`\n\n")
+
+            f.write("| k | method | ms/turn | speedup_vs_regex |\n")
+            f.write("|---|--------|--------:|-----------------:|\n")
+            for row in rows:
+                k = row["k"]
+                method = row["method"]
+                ms_per_turn = f"{row['ms_per_turn']:.4f}"
+                if row["speedup_vs_regex"] is None or row["speedup_vs_regex"] == float(
+                    "inf"
+                ):
+                    speedup_str = "-"
+                else:
+                    speedup_str = f"{row['speedup_vs_regex']:.2f}"
+                f.write(
+                    f"| {k} | {method} | {ms_per_turn} | {speedup_str} |\n"
+                )
 
 
 def main(argv: Sequence[str] | None = None) -> None:
@@ -113,6 +160,12 @@ def main(argv: Sequence[str] | None = None) -> None:
         default=1000,
         help="Number of iterations over the transcripts for each benchmark.",
     )
+    parser.add_argument(
+        "--out-md",
+        type=str,
+        default="solution/benchmark_results.md",
+        help="Path to write last benchmark results as a Markdown table.",
+    )
 
     args = parser.parse_args(argv)
 
@@ -123,6 +176,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         cues_path=args.cues,
         k_values=k_values,
         iterations=args.iterations,
+        out_md=args.out_md,
     )
 
 
