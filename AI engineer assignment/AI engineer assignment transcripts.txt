@@ -1,0 +1,97 @@
+===== Transcript 1 =====
+AGENT: Hello, this is HealthCare Outreach. Can you hear me well?
+PATIENT: Yes, I can.
+AGENT: Great. I'm calling to remind you about your annual check-up. Would you like to schedule it now?
+PATIENT: Sorry, could you repeat that?
+AGENT: Sure, let me rephrase: I’m calling to help you schedule your annual check-up.
+PATIENT: Oh, I see. Yes, I think next week works.
+AGENT: Perfect. Just to confirm, would you prefer morning or afternoon?
+
+===== Transcript 2 =====
+AGENT: Buenas tardes, le habla su centro de salud. ¿Cómo se encuentra hoy?
+PATIENT: Bien, gracias.
+AGENT: Me gustaría agendar su visita anual. ¿Prefiere mañana o la próxima semana?
+PATIENT: ¿Puede repetir?
+AGENT: Claro, lo repito: le preguntaba si prefiere mañana o la próxima semana.
+PATIENT: Ah, prefiero la próxima semana.
+AGENT: Perfecto. Solo para confirmar, ¿prefiere martes o jueves?
+
+===== Transcript 3 =====
+AGENT: Hi, this is HealthCare Outreach. To confirm, is this Mr. Gomez?
+PATIENT: Speaking.
+AGENT: Thank you. Just to confirm, your last check-up was more than a year ago, right?
+PATIENT: That’s right.
+AGENT: Perfect. In other words, let’s get you scheduled. Do you prefer weekdays or weekends?
+PATIENT: I usually prefer weekdays, but what time?
+AGENT: Sorry, you’re breaking up. Could you repeat that?
+PATIENT: Weekdays are fine.
+AGENT: Got it. Let me rephrase: Monday or Wednesday next week?
+
+===== Transcript 4 =====
+AGENT: Hello, can you hear me?
+PATIENT: You're breaking up a little.
+AGENT: Thanks for letting me know. One more time, I’d like to help you schedule your check-up.
+PATIENT: Okay, I understand.
+AGENT: Just to confirm, you are due for your annual visit, correct?
+PATIENT: Yes, that’s correct.
+AGENT: Great. Which day works better for you, Tuesday or Thursday?
+
+===== Transcript 5 =====
+AGENT: Buenas, soy del centro de salud. Me gustaría revisar su estado de salud anual.
+PATIENT: No le entendí.
+AGENT: Claro, lo repito: queremos revisar su estado de salud anual.
+PATIENT: Ah, ya entiendo. ¿Cuándo sería?
+AGENT: Para aclarar, tenemos disponibilidad la próxima semana. ¿Prefiere lunes o viernes?
+PATIENT: El viernes.
+AGENT: Perfecto, el viernes queda agendado.
+
+===== Transcript 6 =====
+AGENT: Hi, just to confirm, are you available on Monday?
+PATIENT: No, I’ll be busy.
+AGENT: Okay, let me rephrase: Would Tuesday or Wednesday work better?
+PATIENT: Tuesday works.
+AGENT: Excellent. Just to confirm, do you prefer morning or afternoon?
+PATIENT: Afternoon, please.
+AGENT: Got it. Sorry, I didn’t catch that last part—did you say afternoon?
+PATIENT: Yes, afternoon.
+
+===== Transcript 7 =====
+AGENT: Hola, hablo del centro médico. ¿Podría confirmar su nombre?
+PATIENT: María López.
+AGENT: Gracias. Solo para confirmar, ¿usted vive en la calle San Martín?
+PATIENT: Sí, correcto.
+AGENT: Perfecto. Entonces podemos agendar su visita. ¿Prefiere mañana o pasado mañana?
+PATIENT: Mañana está bien.
+AGENT: Lo repito para estar seguro: ¿mañana por la tarde?
+PATIENT: Sí, por la tarde.
+
+===== Transcript 8 =====
+AGENT: Hi, I'm calling to help with your annual health appointment.
+PATIENT: Sorry, I didn’t catch that.
+AGENT: No problem, I’ll restate: I’d like to help you book your annual visit.
+PATIENT: Okay, how long does it take?
+AGENT: Usually 30 minutes. Just to confirm, would you prefer next week?
+PATIENT: Yes, next week works.
+AGENT: Great. Sorry, could you repeat—was that next week or the week after?
+PATIENT: Next week.
+AGENT: Perfect, next week it is.
+
+===== Transcript 9 =====
+AGENT: Buenas tardes, le llamamos para recordarle su cita anual.
+PATIENT: ¿Perdón?
+AGENT: Claro, lo repito: su visita anual con el doctor.
+PATIENT: Ah, sí. ¿Es posible en la mañana?
+AGENT: Lo siento, no entendí bien. ¿Prefiere en la mañana?
+PATIENT: Sí, en la mañana.
+AGENT: Perfecto, queda registrado.
+
+===== Transcript 10 =====
+AGENT: Hello, this is HealthCare Outreach. Can I take a moment of your time?
+PATIENT: Yes.
+AGENT: Perfect. In other words, I’d like to help you schedule your annual exam.
+PATIENT: Sure, when?
+AGENT: Just to confirm, are mornings or afternoons better for you?
+PATIENT: Afternoons.
+AGENT: Sorry, the line is bad—could you repeat that?
+PATIENT: Afternoons.
+AGENT: Got it. Thank you, I’ll book you for the afternoon slot.

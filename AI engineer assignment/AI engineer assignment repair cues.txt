@@ -1,0 +1,22 @@
+[ASK_TO_REPEAT]
+can you repeat
+say that again
+pardon
+¿puede repetir
+no le entendí
+
+[REPHRASE]
+let me rephrase
+in other words
+I’ll restate that
+lo repito
+
+[HEARING_ISSUES]
+bad connection
+you’re breaking up
+one more time please
+
+[CONFIRMATION]
+just to confirm
+to make sure I understood
+solo para confirmar

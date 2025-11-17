@@ -1,0 +1,59 @@
+[ASK_TO_REPEAT]
+can you repeat
+say that again
+pardon
+¿puede repetir
+no le entendí
+could you repeat that
+can you say that again
+please repeat that
+could you say it one more time
+¿podría repetir eso
+¿me lo repite por favor
+disculpe, ¿puede repetir
+
+[REPHRASE]
+let me rephrase
+in other words
+I’ll restate that
+lo repito
+let me say that another way
+let me put it differently
+I’ll say that again in another way
+déjeme explicarlo de otra forma
+en otras palabras
+para decirlo de otra manera
+
+[HEARING_ISSUES]
+bad connection
+you’re breaking up
+one more time please
+the line is bad
+the line is breaking up
+I’m having trouble hearing you
+se escucha entrecortado
+no se escucha bien
+
+[CONFIRMATION]
+just to confirm
+to make sure I understood
+solo para confirmar
+just to make sure
+just to double check
+just to be sure
+solo para estar seguro
+solo para confirmar
+para asegurarme de que entendí
+
+[APOLOGY]
+sorry, I didn’t catch that
+I’m sorry, could you repeat that
+disculpe, no escuché bien
+perdón, no le entendí
+
+[CLARIFICATION]
+just to be clear
+to clarify
+solo para aclarar
+para que quede claro
+

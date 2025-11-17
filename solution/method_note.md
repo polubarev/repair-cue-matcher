@@ -1,0 +1,8 @@
+## Method Note
+
+- **Data structure:** We use an Aho–Corasick automaton built over the normalized repair-cue phrases. The automaton is represented as a trie whose nodes store outgoing character transitions, a failure link, and a list of pattern IDs that end at that node.
+- **Text normalization:** Before both construction and matching, phrases are normalized with NFC, case-folding, accent stripping (via NFD + removal of combining marks), light punctuation canonicalization (curly quotes → ASCII), and whitespace collapsing. This makes matching robust across English/Spanish variations (e.g., “entendí” ≈ “entendi”).
+- **Time complexity:** Building the automaton is linear in the total length of all cue patterns. For each agent turn, the matching algorithm processes each character exactly once plus a bounded number of failure transitions, and emits matches as they occur, giving per-turn runtime **O(L + M)**, where L is the length of the normalized turn and M is the number of matches.
+- **Independence from k:** After construction, the automaton always follows at most one forward edge and a constant-amortized number of failure links per character, so the per-turn runtime does not scale linearly with the number of cues k. Adding more patterns increases the size of the automaton but not the asymptotic per-turn matching cost.
+- **Memory complexity:** Memory usage is **O(S)**, where S is the total number of trie states plus stored transitions and outputs. This grows roughly linearly with the total character length of all cue phrases (including synthetic variants used to reach k = 200 for benchmarking).
+
