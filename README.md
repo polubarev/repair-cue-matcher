@@ -46,7 +46,8 @@ python -m agent_kpi.benchmark \
   --transcripts "AI engineer assignment/AI engineer assignment transcripts.txt" \
   --cues "solution/repair_cues.txt" \
   --k 10,50,200 \
-  --iterations 1000
+  --iterations 100 \                          
+  --out-md "solution/last_benchmark_run.md"              
 ```
 
 This prints a table with, for each `k`:
@@ -66,36 +67,12 @@ python -m agent_kpi.benchmark --help
 To see which repair cues are detected in the sample transcripts (using the “fire only after patient turn” rule):
 
 ```bash
-python - << 'PY'
-from agent_kpi.integration import parse_transcripts, agent_turns_after_patient
-from agent_kpi.patterns import load_raw_cues, build_cue_patterns
-from agent_kpi.aho_matcher import AhoCorasickMatcher
-
-transcripts_path = "AI engineer assignment/AI engineer assignment transcripts.txt"
-cues_path = "solution/repair_cues.txt"
-
-convs = parse_transcripts(transcripts_path)
-pairs = agent_turns_after_patient(convs)
-
-patterns = build_cue_patterns(load_raw_cues(cues_path))
-matcher = AhoCorasickMatcher(patterns)
-
-for conv, idx in pairs:
-    turn = conv.turns[idx]
-    matches = matcher.find_all(turn.text)
-    if matches:
-        print(f"Conversation {conv.conv_id}, AGENT turn {idx}: {turn.text}")
-        for m in matches:
-            print(f"  - [{m.pattern.category}] {m.pattern.raw_phrase}")
-        print()
-PY
+python scripts/inspect_repair_cues.py
 ```
 
 ## Documentation & KPIs
 
-- High-level implementation plan: `solution/solution_plan.md`
 - Method note (for submission): `solution/method_note.md`
 - KPI usage description (robustness, comprehension quality, friction): `solution/kpi_writeup.md`
 
 You can use these markdown files directly as part of the written deliverables for the assignment.
-
