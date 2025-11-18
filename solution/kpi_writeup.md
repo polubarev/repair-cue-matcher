@@ -1,5 +1,7 @@
 ## KPI Usage of Repair Cues
 
+The KPIs below are defined for an **AI conversational agent** (not a human caller) that handles outbound calls and uses repair cues as part of its dialogue policy.
+
 ### 1. Robustness / Recovery KPI
 
 - **Definition:** Use the frequency of repair cues that occur immediately after patient turns as a proxy for how actively the agent attempts to recover from misunderstandings or low-ASR moments.
@@ -17,11 +19,11 @@
   - `repair_cues_per_100_agent_turns` for a given call type, language, and channel.
   - Separate rates for “failure-like” cues (`[ASK_TO_REPEAT]`, `[HEARING_ISSUES]`) and “safety/confirmation” cues (`[CONFIRMATION]`).
   - `repair_cues_per_minute` segmented by scenario (e.g., outbound reminders vs follow-ups).
-- **Interpretation:** For comparable cohorts of calls, a **lower** baseline rate of failure-like cues generally indicates better comprehension quality: the agent understands patients on first pass more often and does not need to re-ask or rephrase. High confirmation usage alone may simply reflect a conservative policy. When comparing models or ASR front-ends, we would expect the better system to show a consistent downward shift in failure-like cue rates while still maintaining enough confirmations to avoid unsafe assumptions.
+- **Interpretation:** For comparable cohorts of calls, a **lower** baseline rate of failure-like cues generally indicates better comprehension quality: the AI agent understands patients on first pass more often and does not need to re-ask or rephrase. High confirmation usage alone may simply reflect a conservative, safety-focused policy. When comparing model versions or ASR front-ends, we would expect the better system to show a consistent downward shift in failure-like cue rates while still maintaining enough confirmations to avoid unsafe assumptions.
 - **Worked example:** On 1,000 reminder calls we see:
   - Model A: **5 repair cues / 100 agent turns**.
   - Model B: **15 repair cues / 100 agent turns**.
-  - Suppose for Model B, **12/15** are `[ASK_TO_REPEAT]` or `[HEARING_ISSUES]`, while for Model A only **2/5** are in those categories and the rest are `[CONFIRMATION]`. If scheduling rates and average call durations are similar, we interpret Model A as having **better comprehension** (fewer true failures). A move from 15 → 5 failure-like cues per 100 over a deployment cycle is a clear improvement; a jump from 5 → 15 would be a regression worth investigating (ASR config change, new prompt, etc.).
+  - Suppose for Model B, **12/15** are `[ASK_TO_REPEAT]` or `[HEARING_ISSUES]`, while for Model A only **2/5** are in those categories and the rest are `[CONFIRMATION]`. If scheduling rates and average call durations are similar, we interpret Model A as having **better comprehension** (fewer true failures) by the AI agent. A move from 15 → 5 failure-like cues per 100 over a deployment cycle is a clear improvement; a jump from 5 → 15 would be a regression worth investigating (ASR config change, new prompt, etc.).
 
 ### 3. Friction / Patient Experience KPI
 
@@ -30,7 +32,7 @@
   - Short-window density: number of repair cues within a sliding window of N turns or T seconds (e.g., “≥ 3 cues in 5 turns”).
   - Category mix: relative share of `[HEARING_ISSUES]` vs `[ASK_TO_REPEAT]` vs `[REPHRASE]` vs `[CONFIRMATION]` cues, which captures whether friction is due to channel quality, language mismatch, or clarification style.
   - Streak length: longest streak of consecutive agent turns containing repair cues in a call.
-- **Interpretation:** High clustering of repair cues, especially hearing-related ones (“you’re breaking up”, “no se escucha bien”), is a strong signal of technical or conversational friction and often correlates with lower patient satisfaction. A healthy system will show occasional, contextually appropriate repair cues but few long streaks or bursts. High-friction segments should be cross-checked against downstream signals like call abandonment rate or negative sentiment detection to confirm that they are truly impacting patient experience, and improvements to ASR, telephony, or dialogue policy should reduce these friction indicators over time.
+- **Interpretation:** High clustering of repair cues, especially hearing-related ones (“you’re breaking up”, “no se escucha bien”), is a strong signal of technical or conversational friction between the patient and the AI agent and often correlates with lower patient satisfaction. A healthy system will show occasional, contextually appropriate repair cues but few long streaks or bursts. High-friction segments should be cross-checked against downstream signals like call abandonment rate or negative sentiment detection to confirm that they are truly impacting patient experience, and improvements to ASR, telephony, or dialogue policy should reduce these friction indicators over time.
 - **Worked example:** In one 4-minute call, the agent uses repair cues **7 times**, with **5** of them in a cluster of **5 consecutive agent turns**:
   - Short-window density: `5 cues / 5 turns` → very high.
   - Streak length: 5.
