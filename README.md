@@ -27,11 +27,7 @@ This repository contains the original assignment materials and an implementation
 - Python **3.9+**.
 - No third-party dependencies (standard library only).
 
-Run all commands from the repo root:
-
-```bash
-cd "/Users/igor/Personal/DR_asses"
-```
+Run all commands from the repository root (the folder that contains this README).
 
 ## Running the Micro-Benchmark
 
@@ -46,8 +42,8 @@ python -m agent_kpi.benchmark \
   --transcripts "AI engineer assignment/AI engineer assignment transcripts.txt" \
   --cues "solution/repair_cues.txt" \
   --k 10,50,200 \
-  --iterations 100 \                          
-  --out-md "solution/last_benchmark_run.md"              
+  --iterations 100 \
+  --out-md "solution/last_benchmark_run.md"
 ```
 
 This prints a table with, for each `k`:
